@@ -215,13 +215,15 @@ $(document).ready(function () {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
 	  $.ajax({
-                 url: 'https://script.google.com/macros/s/AKfycbyT5GeDiD4iaqZMypeV5TSXMRrmpf-kPsWYFow3YXxdplHOO5I0ZQ3WW09hsiNa_IrX9Q/exec',
+                 url: 'https://script.google.com/macros/s/AKfycbw_lMGTODOHTh222bgbP982COgbDZTlJQXTh-KqmlurUzQ0Cvi-prkXztHeMZeOmfJ2uA/exec',
                  type: 'POST',
                  data: data, // Your data object
                  contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                  success: function(response) {
                    // Handle the successful response from the script
                    console.log(response);
+                   $('#alert-wrapper').html('');
+                   $('#rsvp-modal').modal('show');
                  },
                  error: function(xhr, status, error) {
                    // Handle any errors
