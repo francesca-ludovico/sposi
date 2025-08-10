@@ -136,44 +136,57 @@ $(document).ready(function () {
 
     });
 
-    /********************** Social Share buttons ***********************/
-    var share_bar = document.getElementsByClassName('share-bar');
-    var po = document.createElement('script');
-    po.type = 'text/javascript';
-    po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(po, s);
-
-    for (var i = 0; i < share_bar.length; i++) {
-        var html = '<iframe allowtransparency="true" frameborder="0" scrolling="no"' +
-            'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;via=ramswarooppatra&amp;hashtags=ramandantara&amp;count=horizontal"' +
-            'style="width:105px; height:21px;">' +
-            '</iframe>' +
-
-            '<iframe src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(window.location) + '&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=101094500229731&amp;width=150" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>' +
-
-            '<div class="g-plusone" data-size="medium"></div>';
-
-        // '<iframe src="https://plusone.google.com/_/+1/fastbutton?bsv&amp;size=medium&amp;url=' + encodeURIComponent(window.location) + '" allowtransparency="true" frameborder="0" scrolling="no" title="+1" style="width:105px; height:21px;"></iframe>';
-
-        share_bar[i].innerHTML = html;
-        share_bar[i].style.display = 'inline-block';
+    /********************** IMAGE GALLERY ********************************/
+    // Define the list of image filenames
+    // :.!ls img/eng_pics/*.jpeg | sort | sed -e 's/.*/    \"&\",/'
+    var images = [
+    "img/eng_pics/01.jpeg",
+    "img/eng_pics/02.jpeg",
+    "img/eng_pics/03.jpeg",
+    "img/eng_pics/04.jpeg",
+    "img/eng_pics/05.jpeg",
+    "img/eng_pics/06.jpeg",
+    "img/eng_pics/07.jpeg",
+    "img/eng_pics/08.jpeg",
+    "img/eng_pics/09.jpeg",
+    "img/eng_pics/10.jpeg",
+    "img/eng_pics/11.jpeg",
+    "img/eng_pics/12.jpeg",
+    "img/eng_pics/13.jpeg",
+    "img/eng_pics/14.jpeg",
+    "img/eng_pics/15.jpeg",
+    "img/eng_pics/16.jpeg",
+    "img/eng_pics/17.jpeg",
+    "img/eng_pics/18.jpeg",
+    "img/eng_pics/19.jpeg",
+    "img/eng_pics/Logo_matrimonio.png"
+    ];
+    
+    // Get the gallery container element
+    var gallery = document.getElementById('image-gallery');
+    
+    // Check if the element exists to prevent errors
+    if (gallery) {
+        // Loop through the images array
+        images.forEach(image => {
+            // Create the HTML string for each image
+            var imageHTML = `
+                <div class="col-md-2">
+                    <a class="fancybox" rel="group" href="${image}">
+                        <div class="img-wrap">
+                            <div class="overlay">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <img src="${image}" alt="${image}"/>
+                        </div>
+                    </a>
+                </div>
+            `;
+            
+            // Insert the generated HTML into the gallery container
+            gallery.insertAdjacentHTML('beforeend', imageHTML);
+        });
     }
-
-    /********************** Embed youtube video *********************/
-    $('.player').YTPlayer();
-
-
-    /********************** Toggle Map Content **********************/
-    $('#btn-show-map').click(function () {
-        $('#map-content').toggleClass('toggle-map-content');
-        $('#btn-show-content').toggleClass('toggle-map-content');
-    });
-    $('#btn-show-content').click(function () {
-        $('#map-content').toggleClass('toggle-map-content');
-        $('#btn-show-content').toggleClass('toggle-map-content');
-    });
 
     /********************** Add to Calendar **********************/
     var myCalendar = createCalendar({
@@ -251,7 +264,7 @@ $(document).ready(function () {
 });
 
 /********************** Extras **********************/
-
+/*
 // Google map
 function initMap() {
     var location = {lat: 22.5932759, lng: 88.27027720000001};
@@ -280,7 +293,7 @@ function initBBSRMap() {
         map: map
     });
 }
-
+*/
 // alert_markup
 function alert_markup(alert_type, msg) {
     return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';

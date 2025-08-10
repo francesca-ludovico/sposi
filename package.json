@@ -19,7 +19,11 @@
   "license": "GPL-3.0",
   "homepage": "https://github.com/rampatra/wedding-website",
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
     "gulp": "^5.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-debug": "^5.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
@@ -28,6 +32,7 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "font-awesome": "^4.7.0",
+    "gulp-cli": "^3.1.0",
     "waypoints": "^4.0.1"
   }
 }
