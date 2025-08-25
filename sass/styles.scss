@@ -12,6 +12,10 @@
 /* ==========================================================================
 Global Styles
 ========================================================================== */
+:target {
+  padding-top: 130px; /* Adjust this value to your desired offset */
+  margin-top: -130px; /* Must be the negative of the padding-top value */
+}
 .group:after {
   content: "";
   display: table;
