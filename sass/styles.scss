@@ -12,6 +12,11 @@
 /* ==========================================================================
 Global Styles
 ========================================================================== */
+.responsive-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto; /* This maintains the aspect ratio */
+}
 :target {
   padding-top: 130px; /* Adjust this value to your desired offset */
   margin-top: -130px; /* Must be the negative of the padding-top value */
