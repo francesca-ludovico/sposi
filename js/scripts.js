@@ -197,7 +197,7 @@ $(document).ready(function () {
     var imageWithoutArrow = 'img/piazza_MariaAusiliatrice.png';
     
     // A boolean to track the current state
-    let isArrowVisible = false;
+    let isArrowVisible = true;
     
     // The function that toggles the image source
     function toggleArrow() {
