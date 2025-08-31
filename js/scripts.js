@@ -187,7 +187,31 @@ $(document).ready(function () {
             gallery.insertAdjacentHTML('beforeend', imageHTML);
         });
     }
-
+  
+    /********************** Pulse image **********************/
+    // Get the image element by its ID
+    var arrowImage = document.getElementById('arrowImage');
+    
+    // Define the paths to your two images
+    var imageWithArrow = 'img/piazza_MariaAusiliatrice_sposi.png';
+    var imageWithoutArrow = 'img/piazza_MariaAusiliatrice.png';
+    
+    // A boolean to track the current state
+    let isArrowVisible = false;
+    
+    // The function that toggles the image source
+    function toggleArrow() {
+        if (isArrowVisible) {
+            arrowImage.src = imageWithoutArrow;
+        } else {
+            arrowImage.src = imageWithArrow;
+        }
+        isArrowVisible = !isArrowVisible; // Flip the boolean
+    }
+    
+    // Set an interval to call the function repeatedly
+    // The number (e.g., 500) is the interval in milliseconds
+    setInterval(toggleArrow, 800);
     /********************** Add to Calendar **********************/
     var myCalendar = createCalendar({
         options: {
